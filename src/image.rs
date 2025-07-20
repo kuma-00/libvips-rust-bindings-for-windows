@@ -756,11 +756,11 @@ impl VipsTarget {
         }
     }
 
-    pub fn finish(self) {
-        unsafe {
-            bindings::vips_target_finish(self.ctx);
-        }
-    }
+    // pub fn finish(self) {
+    //     unsafe {
+    //         bindings::vips_target_finish(self.ctx);
+    //     }
+    // }
 
     pub fn putc(&mut self, ch: char) -> Result<()> {
         unsafe {

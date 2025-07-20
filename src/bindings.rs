@@ -75899,9 +75899,9 @@ extern "C" {
 extern "C" {
     pub fn vips_free(buf: *mut ::std::os::raw::c_void) -> ::std::os::raw::c_int;
 }
-extern "C" {
-    pub fn vips_target_finish(target: *mut VipsTarget);
-}
+// extern "C" {
+//     pub fn vips_target_finish(target: *mut VipsTarget);
+// }
 extern "C" {
     pub fn vips_cache_operation_lookup(operation: *mut VipsOperation) -> *mut VipsOperation;
 }
