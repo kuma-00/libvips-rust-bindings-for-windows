@@ -22794,7 +22794,7 @@ pub fn fill_nearest_with_opts(
 /// min: -1000000000, max: 1000000000, default: 0
 
 pub fn draw_rect(
-    image: &VipsImage,
+    image: &mut VipsImage,
     ink: &mut [f64],
     left: i32,
     top: i32,
@@ -22851,7 +22851,7 @@ impl std::default::Default for DrawRectOptions {
 /// draw_rect_options: `&DrawRectOptions` -> optional arguments
 
 pub fn draw_rect_with_opts(
-    image: &VipsImage,
+    image: &mut VipsImage,
     ink: &mut [f64],
     left: i32,
     top: i32,
@@ -22896,7 +22896,7 @@ pub fn draw_rect_with_opts(
 /// min: -1000000000, max: 1000000000, default: 0
 
 pub fn draw_mask(
-    image: &VipsImage,
+    image: &mut VipsImage,
     ink: &mut [f64],
     mask: &VipsImage,
     x: i32,
@@ -22935,7 +22935,7 @@ pub fn draw_mask(
 /// min: -1000000000, max: 1000000000, default: 0
 
 pub fn draw_line(
-    image: &VipsImage,
+    image: &mut VipsImage,
     ink: &mut [f64],
     x_1: i32,
     y_1: i32,
@@ -22975,7 +22975,7 @@ pub fn draw_line(
 /// min: 0, max: 1000000000, default: 0
 
 pub fn draw_circle(
-    image: &VipsImage,
+    image: &mut VipsImage,
     ink: &mut [f64],
     cx: i32,
     cy: i32,
@@ -23027,7 +23027,7 @@ impl std::default::Default for DrawCircleOptions {
 /// draw_circle_options: `&DrawCircleOptions` -> optional arguments
 
 pub fn draw_circle_with_opts(
-    image: &VipsImage,
+    image: &mut VipsImage,
     ink: &mut [f64],
     cx: i32,
     cy: i32,
@@ -23067,7 +23067,7 @@ pub fn draw_circle_with_opts(
 /// y: `i32` -> DrawFlood start point
 /// min: 0, max: 1000000000, default: 0
 
-pub fn draw_flood(image: &VipsImage, ink: &mut [f64], x: i32, y: i32) -> Result<()> {
+pub fn draw_flood(image: &mut VipsImage, ink: &mut [f64], x: i32, y: i32) -> Result<()> {
     unsafe {
         let image_in: *mut bindings::VipsImage = image.ctx;
         let ink_in: *mut f64 = ink.as_mut_ptr();
@@ -23125,7 +23125,7 @@ impl std::default::Default for DrawFloodOptions {
 /// draw_flood_options: `&DrawFloodOptions` -> optional arguments
 
 pub fn draw_flood_with_opts(
-    image: &VipsImage,
+    image: &mut VipsImage,
     ink: &mut [f64],
     x: i32,
     y: i32,
@@ -23187,7 +23187,7 @@ pub fn draw_flood_with_opts(
 /// y: `i32` -> Draw image here
 /// min: -1000000000, max: 1000000000, default: 0
 
-pub fn draw_image(image: &VipsImage, sub: &VipsImage, x: i32, y: i32) -> Result<()> {
+pub fn draw_image(image: &mut VipsImage, sub: &VipsImage, x: i32, y: i32) -> Result<()> {
     unsafe {
         let image_in: *mut bindings::VipsImage = image.ctx;
         let sub_in: *mut bindings::VipsImage = sub.ctx;
@@ -23227,7 +23227,7 @@ impl std::default::Default for DrawImageOptions {
 /// draw_image_options: `&DrawImageOptions` -> optional arguments
 
 pub fn draw_image_with_opts(
-    image: &VipsImage,
+    image: &mut VipsImage,
     sub: &VipsImage,
     x: i32,
     y: i32,
@@ -23266,7 +23266,7 @@ pub fn draw_image_with_opts(
 /// height: `i32` -> Rect to fill
 /// min: -1000000000, max: 1000000000, default: 0
 
-pub fn draw_smudge(image: &VipsImage, left: i32, top: i32, width: i32, height: i32) -> Result<()> {
+pub fn draw_smudge(image: &mut VipsImage, left: i32, top: i32, width: i32, height: i32) -> Result<()> {
     unsafe {
         let image_in: *mut bindings::VipsImage = image.ctx;
         let left_in: i32 = left;

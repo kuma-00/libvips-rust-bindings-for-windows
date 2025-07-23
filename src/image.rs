@@ -18,6 +18,9 @@ pub struct VipsImage {
     pub(crate) ctx: *mut bindings::VipsImage,
 }
 
+unsafe impl Send for VipsImage {}
+unsafe impl Sync for VipsImage {}
+
 #[derive(Debug, Clone)]
 pub struct VipsInterpolate {
     pub(crate) ctx: *mut bindings::VipsInterpolate,
